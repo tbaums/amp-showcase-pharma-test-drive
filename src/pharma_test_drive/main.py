@@ -13,6 +13,7 @@ non-deployed surface (surface.py) isn't needed here.
 
 from __future__ import annotations
 
+import asyncio
 import os
 
 from crewai import LLM
@@ -35,7 +36,11 @@ def _payload_from_env() -> TriggerPayload:
 
 class TestDriveFlow(Flow):
     @start()
-    async def vet_and_deliver(self) -> dict:
+    def vet_and_deliver(self) -> dict:
+        # SYNC step: AMP runs the kickoff in an event loop, so calling the
+        # synchronous crew.kickoff() from an `async` step raises "invoked
+        # synchronously from within a running event loop". Keep the step sync
+        # and run the async Slack delivery in its own loop via asyncio.run().
         payload = _payload_from_env()
         result = build_vetting_crew(payload.site_name, LLM(model=DEFAULT_MODEL)).kickoff()
         result_text = result.raw
@@ -43,9 +48,12 @@ class TestDriveFlow(Flow):
         # Only attempt Slack delivery when a channel is configured; guarded so a
         # delivery failure never fails the run (the vetting + trace is the payload).
         if payload.destination_channel:
-            delivered = await deliver_via_slack_connection(
-                payload, result_text, LLM(model=DEFAULT_MODEL)
-            )
+            try:
+                delivered = asyncio.run(
+                    deliver_via_slack_connection(payload, result_text, LLM(model=DEFAULT_MODEL))
+                )
+            except Exception:
+                delivered = False
         return {
             "ack": ack_text(payload),
             "site": payload.site_name,
