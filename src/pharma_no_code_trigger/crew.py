@@ -12,7 +12,7 @@ from __future__ import annotations
 from crewai import Agent, Crew, Task
 from crewai.tools import tool
 
-from pharma_test_drive.lookup import lookup_site
+from pharma_no_code_trigger.lookup import lookup_site
 
 
 @tool("vet_site")

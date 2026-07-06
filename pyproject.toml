@@ -1,5 +1,5 @@
 [project]
-name = "pharma-test-drive"
+name = "pharma-no-code-trigger"
 version = "0.1.0"
 description = "Pharma Test Drive — clinical site vetting from a shared no-code surface."
 requires-python = ">=3.10"
@@ -8,7 +8,7 @@ dependencies = [
 ]
 
 [project.scripts]
-kickoff = "pharma_test_drive.main:kickoff"
+kickoff = "pharma_no_code_trigger.main:kickoff"
 
 [tool.crewai]
 type = "flow"
@@ -18,4 +18,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/pharma_test_drive"]
+packages = ["src/pharma_no_code_trigger"]

@@ -20,7 +20,7 @@ from typing import Any
 
 from crewai import Agent
 
-from pharma_test_drive.surface import TriggerPayload
+from pharma_no_code_trigger.surface import TriggerPayload
 
 
 def _tool_call_succeeded(result: Any) -> tuple[bool, str]:

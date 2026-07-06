@@ -2642,7 +2642,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pharma-test-drive"
+name = "pharma-no-code-trigger"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

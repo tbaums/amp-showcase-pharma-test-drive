@@ -19,9 +19,9 @@ import os
 from crewai import LLM
 from crewai.flow.flow import Flow, start
 
-from pharma_test_drive.crew import build_vetting_crew
-from pharma_test_drive.notify import deliver_via_slack_connection
-from pharma_test_drive.surface import TriggerPayload, ack_text
+from pharma_no_code_trigger.crew import build_vetting_crew
+from pharma_no_code_trigger.notify import deliver_via_slack_connection
+from pharma_no_code_trigger.surface import TriggerPayload, ack_text
 
 DEFAULT_MODEL = "anthropic/claude-haiku-4-5-20251001"
 

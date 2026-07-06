@@ -17,7 +17,7 @@ from typing import Any
 
 
 def _load_sites() -> dict[str, Any]:
-    data = files("pharma_test_drive").joinpath("data/sites.json").read_text()
+    data = files("pharma_no_code_trigger").joinpath("data/sites.json").read_text()
     return json.loads(data)
 
 
