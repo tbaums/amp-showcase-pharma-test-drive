@@ -1,0 +1,23 @@
+{
+  "Fictia Clinical Research Center": {
+    "location": "Fictia, USA (fictional)",
+    "principal_investigator": "Dr. Ada Nonesuch",
+    "prior_trials_completed": 14,
+    "flags": [],
+    "notes": "Clean vetting result — no flags on file, strong enrollment history."
+  },
+  "Northgate Investigational Trials Unit": {
+    "location": "Northgate, fictional province",
+    "principal_investigator": "Dr. Wren Callahan",
+    "prior_trials_completed": 6,
+    "flags": ["gcp_audit_finding_minor_2024_closed"],
+    "notes": "One minor GCP audit finding from 2024, closed with corrective action; no open items."
+  },
+  "Somnus Bio Trial Site": {
+    "location": "Somnus Bay, fictional territory",
+    "principal_investigator": "Dr. Idris Marchetti",
+    "prior_trials_completed": 2,
+    "flags": ["enrollment_shortfall_2023_resolved", "data_query_backlog_flagged"],
+    "notes": "2023 enrollment shortfall resolved by protocol amendment; current data-query backlog flagged for monitoring."
+  }
+}
